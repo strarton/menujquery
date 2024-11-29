@@ -84,5 +84,46 @@ Como usar el componente menú:
             background-color: blueviolet;
          }
 
-Con esto se puede crear un menú y parametrizar hasta el último de sus elementos sin utilizar tener que implementar lógica para ello.
+5. JSON (Via alternativa)
+   Otra manera de hacerlo es generando un JSON con toda la información y poder renderizar el menú detodas formas.
+   a. ara ello necesitaremos un JSON com constante y ponerle el nombre que queramos, Por ejemplo este:
+   
+   const menuStructure = [
+    {
+        color: "lightcoral",
+        nombre: "Categoría 1",
+        enlaces: [
+            { color: "blue", nombre: "Contacto", modo: "link", link: "#contacto" },
+            { color: "red", nombre: "Evento de prueba", modo: "evento", link: null }
+        ]
+    },
+    {
+        color: "lightgreen",
+        nombre: "Categoría 2",
+        enlaces: [
+            { color: "red", nombre: "Añadir Relleno", modo: "evento", link: null }
+        ]
+    },
+    {
+        color: "lightgreen",
+        nombre: "Categoría tercera",
+        enlaces: [
+            { color: "grey", nombre: "GitHub", modo: "link", link: "https://github.com" }
+        ]
+    }
+
+   b. Seguidamente instanciamos un menú. Ejemplo:
+   
+   const menuPrincipal = new Menu('lightblue', 'Arial', '16px', 'vertical', '#nav')
+
+   c. Tendremos que pasarle al menú que hemos creado  lascategorias y enlacesdela siguiente forma:
+
+   menuPrincipal._categorias=menuStructure
+
+   d. Último paso, renderizar. Ejemplo:
+
+   menuPrincipal.renderizarMenu();
+
+5. FINAL
+Con estas dos maneras se puede crear un menú y parametrizar hasta el último de sus elementos sin utilizar tener que implementar lógica para ello.
    
